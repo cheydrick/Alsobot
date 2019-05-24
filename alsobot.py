@@ -40,7 +40,7 @@ if __name__ == '__main__':
         sys.exit()
 
     matrix_bot = MatrixBotAPI(USERNAME, PASSWORD, SERVER)
-    alsobot = Alsobot("www.alsochris.com")
+    alsobot = Alsobot(MINECRAFTSERVER)
     alsobot_test_handler = MRegexHandler("alsobot", alsobot.default_response)
     matrix_bot.add_handler(alsobot_test_handler)
     matrix_bot.start_polling()
