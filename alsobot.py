@@ -7,7 +7,7 @@ from matrix_bot_api.mregex_handler import MRegexHandler
 from matrix_bot_api.mcommand_handler import MCommandHandler
 
 def alsobot_test_callback(room, event):
-    room.send_text("Hi, " + event['Sender'])
+    room.send_text("Hi, " + event['sender'])
 
 if __name__ == '__main__':
     USERNAME = os.getenv('ALSOBOTUSER', "")
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     alsobot = MatrixBotAPI(USERNAME, PASSWORD, SERVER)
     alsobot_test_handler = MRegexHandler("alsobot", alsobot_test_callback)
-
+    alsobot.add_handler(alsobot_test_handler)
     alsobot.start_polling()
 
     while True:
