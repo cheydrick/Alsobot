@@ -15,7 +15,7 @@ class Alsobot(object):
     def default_response(self, room, event):
         status = self.minecraftserver_handle.status()
         if status.players.online == 0:
-            info_string = "The server has 0 players and replied in {1}ms"
+            info_string = "The server has 0 players and replied in {0}ms".format(status.latency)
         else:
             info_string = "The Server has {0} players and replied in {1}ms:\n".format(status.players.online, status.latency)
             for p in range(status.players.online):
